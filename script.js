@@ -6,14 +6,14 @@ const player = (name, symbol, turn) => {
     
     // control any win situation
     const isWin = () => {
-        if ((gameBoardArr[0] === symbol && gameBoardArr[1] === symbol && gameBoardArr[2] === symbol)) return console.log(`${name} win`);
-        if ((gameBoardArr[3] === symbol && gameBoardArr[4] === symbol && gameBoardArr[5] === symbol)) return console.log(`${name} win`);
-        if ((gameBoardArr[6] === symbol && gameBoardArr[7] === symbol && gameBoardArr[8] === symbol)) return console.log(`${name} win`);
-        if ((gameBoardArr[0] === symbol && gameBoardArr[3] === symbol && gameBoardArr[6] === symbol)) return console.log(`${name} win`);
-        if ((gameBoardArr[1] === symbol && gameBoardArr[4] === symbol && gameBoardArr[7] === symbol)) return console.log(`${name} win`);
-        if ((gameBoardArr[2] === symbol && gameBoardArr[5] === symbol && gameBoardArr[8] === symbol)) return console.log(`${name} win`);
-        if ((gameBoardArr[0] === symbol && gameBoardArr[4] === symbol && gameBoardArr[8] === symbol)) return console.log(`${name} win`);
-        if ((gameBoardArr[2] === symbol && gameBoardArr[4] === symbol && gameBoardArr[6] === symbol)) return console.log(`${name} win`);
+        if ((gameBoardArr[0] === symbol && gameBoardArr[1] === symbol && gameBoardArr[2] === symbol)) return console.log(`${obj.symbol} win`);
+        if ((gameBoardArr[3] === symbol && gameBoardArr[4] === symbol && gameBoardArr[5] === symbol)) return console.log(`${obj.symbol} win`);
+        if ((gameBoardArr[6] === symbol && gameBoardArr[7] === symbol && gameBoardArr[8] === symbol)) return console.log(`${obj.symbol} win`);
+        if ((gameBoardArr[0] === symbol && gameBoardArr[3] === symbol && gameBoardArr[6] === symbol)) return console.log(`${obj.symbol} win`);
+        if ((gameBoardArr[1] === symbol && gameBoardArr[4] === symbol && gameBoardArr[7] === symbol)) return console.log(`${obj.symbol} win`);
+        if ((gameBoardArr[2] === symbol && gameBoardArr[5] === symbol && gameBoardArr[8] === symbol)) return console.log(`${obj.symbol} win`);
+        if ((gameBoardArr[0] === symbol && gameBoardArr[4] === symbol && gameBoardArr[8] === symbol)) return console.log(`${obj.symbol} win`);
+        if ((gameBoardArr[2] === symbol && gameBoardArr[4] === symbol && gameBoardArr[6] === symbol)) return console.log(`${obj.symbol} win`);
     }
 
     // control x-o turn
