@@ -117,23 +117,21 @@ document.addEventListener('click', (e) => {
 },
 true
 )
- 
-
-    
-
-
-
 
 // restart button
 document.querySelector(".restart-btn").addEventListener('click', () => {
     gameBoard.resetGame();
     gameBoard.isGridEnable = true;
+    playerOne.turn = 'true';
+    playerTwo.turn = 'false';
 });
 // dialog restart button
 document.querySelector('#play-again-btn').addEventListener('click',() => {
     gameBoard.resetGame();
     gameBoard.closeDialog();
     gameBoard.isGridEnable = true;
+    playerOne.turn = 'true';
+    playerTwo.turn = 'false';
 });
 //dialog exit button
 document.querySelector('#exit-btn').addEventListener('click', () =>{
