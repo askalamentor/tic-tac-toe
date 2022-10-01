@@ -108,6 +108,11 @@ body {
     width: 6rem;
     background-color: var(--dm-main-background-color);
     border: 1px solid var(--text-color);
+    color: var(--text-color);
+    font-size: calc(var(--font-size) * 5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* game restart */
