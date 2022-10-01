@@ -1,9 +1,9 @@
-const gameBoardArr = ['','','','','','','','',''];
+const gameBoardArr = ['', '', '', '', '', '', '', '', ''];
 const grids = document.querySelectorAll(".game-subgrid");
 
 // player object creater
-const player = (name, symbol, turn) => { 
-    
+const player = (name, symbol, turn) => {
+
     // control any win situation
     const isWin = () => {
         if ((gameBoardArr[0] === symbol && gameBoardArr[1] === symbol && gameBoardArr[2] === symbol)) return endGame();
@@ -21,11 +21,6 @@ const player = (name, symbol, turn) => {
 
         const endGameDialog = document.querySelector('#end-game-dialog');
         endGameDialog.showModal();
-        //flex properties
-        endGameDialog.style.display = 'flex';
-        endGameDialog.style.flexDirection = 'column';
-        endGameDialog.style.alignItems = 'center';
-        endGameDialog.style.justifyContent = 'center';
         // winner text
         endGameDialog.children[0].innerHTML = `${obj.symbol} win`;
 
@@ -59,7 +54,7 @@ const gameBoard = (() => {
     };
 
     // reset
-    const  resetGame = () => {
+    const resetGame = () => {
         // reset array
         for (item in gameBoardArr) {
             gameBoardArr[item] = "";
@@ -70,7 +65,13 @@ const gameBoard = (() => {
         })
     };
 
-    return { addSymbol, resetGame };
+    // close dialog
+    const closeDialog = () => {
+        const endGameDialog = document.querySelector('#end-game-dialog');
+        endGameDialog.close();
+    }
+
+    return { addSymbol, resetGame, closeDialog };
 
 })();
 
@@ -105,3 +106,8 @@ grids.forEach((grid) => {
 
 // restart button
 document.querySelector(".restart-btn").addEventListener('click', gameBoard.resetGame);
+// dialog restart button
+document.querySelector('#play-again-btn').addEventListener('click',() => {
+    gameBoard.resetGame();
+    gameBoard.closeDialog();
+});
