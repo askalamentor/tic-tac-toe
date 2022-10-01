@@ -6,14 +6,29 @@ const player = (name, symbol, turn) => {
     
     // control any win situation
     const isWin = () => {
-        if ((gameBoardArr[0] === symbol && gameBoardArr[1] === symbol && gameBoardArr[2] === symbol)) return console.log(`${obj.symbol} win`);
-        if ((gameBoardArr[3] === symbol && gameBoardArr[4] === symbol && gameBoardArr[5] === symbol)) return console.log(`${obj.symbol} win`);
-        if ((gameBoardArr[6] === symbol && gameBoardArr[7] === symbol && gameBoardArr[8] === symbol)) return console.log(`${obj.symbol} win`);
-        if ((gameBoardArr[0] === symbol && gameBoardArr[3] === symbol && gameBoardArr[6] === symbol)) return console.log(`${obj.symbol} win`);
-        if ((gameBoardArr[1] === symbol && gameBoardArr[4] === symbol && gameBoardArr[7] === symbol)) return console.log(`${obj.symbol} win`);
-        if ((gameBoardArr[2] === symbol && gameBoardArr[5] === symbol && gameBoardArr[8] === symbol)) return console.log(`${obj.symbol} win`);
-        if ((gameBoardArr[0] === symbol && gameBoardArr[4] === symbol && gameBoardArr[8] === symbol)) return console.log(`${obj.symbol} win`);
-        if ((gameBoardArr[2] === symbol && gameBoardArr[4] === symbol && gameBoardArr[6] === symbol)) return console.log(`${obj.symbol} win`);
+        if ((gameBoardArr[0] === symbol && gameBoardArr[1] === symbol && gameBoardArr[2] === symbol)) return endGame();
+        if ((gameBoardArr[3] === symbol && gameBoardArr[4] === symbol && gameBoardArr[5] === symbol)) return endGame();
+        if ((gameBoardArr[6] === symbol && gameBoardArr[7] === symbol && gameBoardArr[8] === symbol)) return endGame();
+        if ((gameBoardArr[0] === symbol && gameBoardArr[3] === symbol && gameBoardArr[6] === symbol)) return endGame();
+        if ((gameBoardArr[1] === symbol && gameBoardArr[4] === symbol && gameBoardArr[7] === symbol)) return endGame();
+        if ((gameBoardArr[2] === symbol && gameBoardArr[5] === symbol && gameBoardArr[8] === symbol)) return endGame();
+        if ((gameBoardArr[0] === symbol && gameBoardArr[4] === symbol && gameBoardArr[8] === symbol)) return endGame();
+        if ((gameBoardArr[2] === symbol && gameBoardArr[4] === symbol && gameBoardArr[6] === symbol)) return endGame();
+    }
+
+    // end game dialog
+    const endGame = () => {
+
+        const endGameDialog = document.querySelector('#end-game-dialog');
+        endGameDialog.showModal();
+        //flex properties
+        endGameDialog.style.display = 'flex';
+        endGameDialog.style.flexDirection = 'column';
+        endGameDialog.style.alignItems = 'center';
+        endGameDialog.style.justifyContent = 'center';
+        // winner text
+        endGameDialog.children[0].innerHTML = `${obj.symbol} win`;
+
     }
 
     // control x-o turn

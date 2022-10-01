@@ -181,10 +181,12 @@ dialog {
     border: 5px solid var(--main-background-color);
     background-color: var(--alternative-background-color);
     color: var(--main-background-color);
+    /*
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    */
     font-size: calc(var(--font-size) * 3);
     margin: auto;
 }
