@@ -71,7 +71,10 @@ const gameBoard = (() => {
         endGameDialog.close();
     }
 
-    return { addSymbol, resetGame, closeDialog };
+    // check whether game ends.
+    const isGridEnable = true;
+
+    return { addSymbol, resetGame, closeDialog, isGridEnable };
 
 })();
 
@@ -104,10 +107,36 @@ grids.forEach((grid) => {
     })
 })
 
+// ignore clickin grid after pressing exit button
+document.addEventListener('click', (e) => {
+    if (gameBoard.isGridEnable === false) {
+        if (e.target.closest('.game-subgrid')) {
+            e.stopPropagation();
+        }
+    }
+},
+true
+)
+ 
+
+    
+
+
+
+
 // restart button
-document.querySelector(".restart-btn").addEventListener('click', gameBoard.resetGame);
+document.querySelector(".restart-btn").addEventListener('click', () => {
+    gameBoard.resetGame();
+    gameBoard.isGridEnable = true;
+});
 // dialog restart button
 document.querySelector('#play-again-btn').addEventListener('click',() => {
     gameBoard.resetGame();
     gameBoard.closeDialog();
+    gameBoard.isGridEnable = true;
+});
+//dialog exit button
+document.querySelector('#exit-btn').addEventListener('click', () =>{
+    gameBoard.closeDialog();
+    gameBoard.isGridEnable = false;
 });
