@@ -43,7 +43,19 @@ const gameBoard = (() => {
         gameBoardArr[index] = symbol;
     };
 
-    return { addSymbol };
+    // reset
+    const  resetGame = () => {
+        // reset array
+        for (item in gameBoardArr) {
+            gameBoardArr[item] = "";
+        }
+        // reset grid display
+        grids.forEach((grid) => {
+            grid.innerHTML = "";
+        })
+    };
+
+    return { addSymbol, resetGame };
 
 })();
 
@@ -75,3 +87,6 @@ grids.forEach((grid) => {
         playerTwo.isWin();
     })
 })
+
+// restart button
+document.querySelector(".restart-btn").addEventListener('click', gameBoard.resetGame);
